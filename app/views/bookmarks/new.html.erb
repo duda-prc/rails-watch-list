@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>New bookmark to <strong class="colorfull"><%= @list.name  %></strong></h1>
+
+  <%= simple_form_for [@list, @bookmark]  do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie, include_blank: false %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+  <hr>
+  <%= link_to 'Back', list_path(@list), class:'btn' %>
+</div>

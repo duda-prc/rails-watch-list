@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="colorfull text-center">Movies List</h1>
+  <div class="cards my-5">
+    <% @movies.each do |movie| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= movie.poster_url %>)">
+        <p class="text-center"><%= movie.title  %></p>
+      </div>
+    <% end %>
+  </div>
+
+</div>

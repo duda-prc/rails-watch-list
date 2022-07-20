@@ -1,0 +1,69 @@
+.colorfull {
+  font-family: 'Gilroy Bold', sans-serif;
+  font-size: 72px;
+  background: linear-gradient(45deg, #287abd 10%, #d41162 80%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.colorfull-a {
+  text-decoration: none;
+  color: white;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  background-image: linear-gradient(hsla(335.2, 85.3%, 45.5%, 0.5), hsla(335.2, 85.2%, 45.1%, 0.5)), linear-gradient(hsl(334.9, 83.3%, 44.5%), hsl(335.1, 84.4%, 45.3%));
+  background-position: .3em 90%, .3em 90%;
+  background-size: 100% .25em, 0 .25em;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.colorfull-a::before,
+.colorfull-a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-decoration: none;
+  color: white !important;
+}
+
+.colorfull-a::before {
+  height: 2px;
+  bottom: 0;
+  background-image: linear-gradient(#287abd, #044071), linear-gradient(#287abd, #044071);
+  background-position: .3em 90%, .3em 90%;
+  background-size: 100% .25em, 0 .25em;
+  background-repeat: no-repeat, no-repeat;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: white;
+}
+
+.colorfull-a::after {
+  background-image: linear-gradient(#287abd, #044071), linear-gradient(#287abd, #044071);
+  background-position: .3em 90%, .3em 90%;
+  background-size: 100% .25em, 0 .25em;
+  background-repeat: no-repeat, no-repeat;
+  height: 100%;
+  content: attr(data-replace);
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: white;
+}
+
+.colorfull-a:hover:before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+
+.colorfull-a:hover:after {
+  transform: translate3d(0, 0, 0);
+}
+
+.colorfull-a span {
+  transform: translate3d(-200%, 0, 0);
+}
