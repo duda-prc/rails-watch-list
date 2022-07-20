@@ -57,3 +57,6 @@ gem "simple_form", github: "heartcombo/simple_form"
 
 # Gem for security
 gem 'dotenv-rails', groups: [:development, :test]
+
+# Gemfile - Cloudinary
+gem 'cloudinary', '~> 1.16.0'

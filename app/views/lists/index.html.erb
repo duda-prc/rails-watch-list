@@ -10,10 +10,10 @@
 <div class="container my-5">
   <div class="cards">
     <% @lists.each do |list| %>
-      <% if list.movies.empty? %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+      <% if list.photo.attached? %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('<%= cl_image_path list.photo.key %>')">
       <% else %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url(<%= list.movies[0].poster_url %>)">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
       <% end %>
         <%= link_to list.name, list_path(list), class:'btn btn-lg' %>
       </div>
