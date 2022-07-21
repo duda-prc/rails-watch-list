@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :lists, only: %i[new create show index update edit] do
     resources :bookmarks, only: %i[new create]
+    resources :reviews, only: %i[create]
   end
 
   resources :movies, only: [:index]

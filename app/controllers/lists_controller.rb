@@ -4,24 +4,32 @@ class ListsController < ApplicationController
     @lists = List.all
   end
 
-  def show; end
+  def show
+    @review = Review.new
+    @review.list = @list
+  end
 
   def new
     @list = List.new
   end
 
   def create
-    @list = List.create!(list_params)
-
-    redirect_to list_path(@list)
+    @list = List.new(list_params)
+    if @list.save
+      redirect_to list_path(@list)
+    else
+      render :new
+    end
   end
 
   def edit; end
 
   def update
-    @list.update(list_params)
-
-    redirect_to @list
+    if @list.update(list_params)
+      redirect_to @list
+    else
+      render :edit
+    end
   end
 
   private

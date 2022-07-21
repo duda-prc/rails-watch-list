@@ -30,8 +30,6 @@
 }
 
 .colorfull-a::before {
-  height: 2px;
-  bottom: 0;
   background-image: linear-gradient(#287abd, #044071), linear-gradient(#287abd, #044071);
   background-position: .3em 90%, .3em 90%;
   background-size: 100% .25em, 0 .25em;
@@ -48,6 +46,7 @@
   background-size: 100% .25em, 0 .25em;
   background-repeat: no-repeat, no-repeat;
   height: 100%;
+  overflow: hidden;
   content: attr(data-replace);
   transform-origin: 100% 50%;
   transform: translate3d(200%, 0, 0);

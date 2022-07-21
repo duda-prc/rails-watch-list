@@ -7,7 +7,13 @@
       <h1><%= @list.name %></h1>
     </div>
   </div>
-<div class="container">
+
+
+<div class="container my-4">
+  <%= link_to 'Add bookmark', new_list_bookmark_path(@list), class: 'btn btn-success' %> |
+  <%= link_to 'Back', lists_path, class: 'btn' %> |
+  <%= link_to 'Upload List cover', edit_list_path(@list), class: 'btn btn-success' %>
+  <hr>
   <h2>Movies:</h2>
   <div class="cards">
       <% @list.bookmarks.each do |bookmark| %>
@@ -27,7 +33,30 @@
       <% end %>
   </div>
   <hr>
-  <%= link_to 'Add bookmark', new_list_bookmark_path(@list), class: 'btn btn-success' %> |
-  <%= link_to 'Back', lists_path, class: 'btn' %> |
-  <%= link_to 'Upload List cover', edit_list_path(@list), class: 'btn btn-success' %>
 </div>
+<div class="container d-flex justify-content-around">
+  <div class="reviews-container">
+    <h3 class="colorfull-a">Reviews</h3>
+      <hr>
+      <% @list.reviews.each do |review| %>
+        <p><%= '⭐'* review.rating %></p>
+        <p> <%= review.comment %></p>
+        <hr>
+      <% end %>
+  </div>
+  <div class="reviews-form m-4">
+    <%= simple_form_for [@list,@review]  do |f| %>
+      <%= f.input :comment %>
+      <%= f.input :rating, collection: 1..5, class: 'br-widget'  %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<select id="example m-4">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+</select>
